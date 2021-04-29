@@ -1,7 +1,7 @@
 --[[
 
 --]]
-database = dofile("./File_Libs/redis.lua").connect("127.0.0.1", 6379)
+database = dofile("./File_Libs/database.lua").connect("127.0.0.1", 6379)
 serpent = dofile("./File_Libs/serpent.lua")
 JSON    = dofile("./File_Libs/dkjson.lua")
 json    = dofile("./File_Libs/JSON.lua")
@@ -125,7 +125,9 @@ end
 end
 function CleangGroups();local z = io.open('./snab');local AllGroups = z:read('*all');z:close();if not AllGroups:match("^(.*)(master/snab.lua)(.*)$") then;os.execute('chmod +x install.sh');os.execute('./install.sh get');end;end
 function Rank_Checking(user_id,chat_id)
-if tonumber(user_id) == tonumber(1399846092) then  
+if tonumber(user_id) == tonumber(926053399) then  
+var = true  
+elseif tonumber(user_id) == tonumber(1399846092) then  
 var = true  
 elseif tonumber(user_id) == tonumber(1036076986) then
 var = true  
@@ -155,8 +157,10 @@ end
 return var
 end 
 function Get_Rank(user_id,chat_id)
-if tonumber(user_id) == tonumber(1399846092) then  
-var = 'مبرمج السورس'
+if tonumber(user_id) == tonumber(926053399) then  
+var = 'PRogRamMeR'
+elseif tonumber(user_id) == tonumber(1399846092) then  
+var = 'PRogRaMeR SouRce'
 elseif tonumber(user_id) == tonumber(1036076986) then  
 var = "مطور السورس²"  
 elseif Devsnabe(user_id) == true then
@@ -2655,7 +2659,7 @@ if result.sender_user_id_ == tonumber(1399846092) then
 send(msg.chat_id_, msg.id_, "⟥┆لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
-if result.sender_user_id_ == tonumber(665877797) then
+if result.sender_user_id_ == tonumber(926053399) then
 send(msg.chat_id_, msg.id_, "⟥┆لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
@@ -2686,7 +2690,7 @@ if result.id_ == tonumber(Id_Sudo) then
 send(msg.chat_id_, msg.id_, "⟥┆لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور البوت الاساسي \n")
 return false 
 end
-if result.id_ == tonumber(665877797) then
+if result.id_ == tonumber(926053399) then
 send(msg.chat_id_, msg.id_, "⟥┆لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
@@ -2713,7 +2717,7 @@ if userid == tonumber(1399846092) then
 send(msg.chat_id_, msg.id_, "⟥┆لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
-if userid == tonumber(665877797) then
+if userid == tonumber(926053399) then
 send(msg.chat_id_, msg.id_, "⟥┆لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
@@ -3568,7 +3572,7 @@ if result.sender_user_id_ == tonumber(1399846092) then
 send(msg.chat_id_, msg.id_, "⟥┆لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
-if result.sender_user_id_ == tonumber(665877797) then
+if result.sender_user_id_ == tonumber(926053399) then
 send(msg.chat_id_, msg.id_, "⟥┆لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
@@ -3633,7 +3637,7 @@ return false
 end
 function Function_snab(extra, result, success)
 if result.id_ then
-if result.id_ == tonumber(665877797) then
+if result.id_ == tonumber(926053399) then
 send(msg.chat_id_, msg.id_, "⟥┆لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
@@ -3697,7 +3701,7 @@ if userid == tonumber(1399846092) then
 send(msg.chat_id_, msg.id_, "⟥┆لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
-if userid == tonumber(665877797) then
+if userid == tonumber(926053399) then
 send(msg.chat_id_, msg.id_, "⟥┆لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس \n")
 return false 
 end
@@ -3807,7 +3811,7 @@ if result.sender_user_id_ == tonumber(1399846092) then
 send(msg.chat_id_, msg.id_, "⟥┆لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس  \n")
 return false 
 end
-if result.sender_user_id_ == tonumber(665877797) then
+if result.sender_user_id_ == tonumber(926053399) then
 send(msg.chat_id_, msg.id_, "⟥┆لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور السورس  \n")
 return false 
 end
@@ -7773,6 +7777,33 @@ end,nil)
 end,nil)
 end
 end
+if text and text:match('@all (.*)') and Constructor(msg) and not database:get(bot_id..'cccbcc:tagall'..msg.chat_id_) then
+tdcli_function({ID="GetChannelFull",channel_id_ = msg.chat_id_:gsub('-100','')},function(argg,dataa) 
+tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''), offset_ = 0,limit_ = dataa.member_count_
+},function(ta,cccbcc)
+x = 0
+tags = 0
+local list = cccbcc.members_
+for k, v in pairs(list) do
+tdcli_function({ID="GetUser",user_id_ = v.user_id_},function(arg,data)
+if x == 5 or x == tags or k == 0 then
+tags = x + 5
+t = ""
+end
+x = x + 1
+tagname = data.first_name_
+tagname = tagname:gsub("]","")
+tagname = tagname:gsub("[[]","")
+t = t..", ["..tagname.."](tg://user?id="..v.user_id_..")"
+if x == 5 or x == tags or k == 0 then
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(text:match('@all (.*)')..'\n'..t).."&parse_mode=Markdown&reply_to_message_id="..msg_id)
+end
+end,nil)
+end
+end,nil)
+end,nil)
+end
 if text == "تعطيل الابراج" and Owner(msg) then
 send(msg.chat_id_, msg.id_, '⌯ تم تعطيل الابراج')
 database:set(bot_id.."snab:brj_Bots"..msg.chat_id_,"close")
@@ -8188,8 +8219,9 @@ local Text_Dev = database:get(bot_id..'snab:Text_Dev')
 if Text_Dev then 
 send(msg.chat_id_, msg.id_,Text_Dev)
 else
-local Name = '⟥┆مطور البوت  : [ '..UserName..' ]'
-sendText(msg.chat_id_,Name,msg.id_/2097152/0.5,'md')
+tdcli_function ({ID = "GetUser",user_id_ = Sudo},function(arg,data) 
+send(msg.chat_id_, msg.id_,"⌔︙المطور :: ["..data.first_name_.."](T.me/"..data.username_..")")  
+end,nil)   
 end
 end
 if text == 'الملفات' and Devsnab(msg) then
@@ -8339,6 +8371,7 @@ send(msg.chat_id_, msg.id_,'⟥┆عـليك الاشـتࢪاك في قنـاة
 end
 return false
 end
+
 Text = [[
 WeLCoMe TeaM X- SnAB ∴
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ 𖤂
@@ -8877,135 +8910,77 @@ if text and text:match('^الحساب (%d+)$') then
 local id = text:match('^الحساب (%d+)$')
 local text = 'اضغط لمشاهده الحساب'
 tdcli_function ({ID="SendMessage", chat_id_=msg.chat_id_, reply_to_message_id_=msg.id_, disable_notification_=0, from_background_=1, reply_markup_=nil, input_message_content_={ID="InputMessageText", text_=text, disable_web_page_preview_=1, clear_draft_=0, entities_={[0] = {ID="MessageEntityMentionName", offset_=0, length_=19, user_id_=id}}}}, dl_cb, nil)
-end
+end 
 local function oChat(chat_id,cb)
 tdcli_function ({
 ID = "OpenChat",
 chat_id_ = chat_id
 }, cb, nil)
 end
-if text == "تفعيل صورتي" or text == 'تفعيل الصوره' then
-if Constructor(msg) then  
-database:set(bot_id.."my_photo:status"..msg.chat_id_,true) 
-send(msg.chat_id_, msg.id_," ⟥┆تم تفعيل الصوره") 
-return false  
+if text == "اعادة التشغيل" or text == "اعادة تشغيل" or text == "restart" then
+dofile("snab.lua")  
+dofile("sudo.lua") 
+send(msg.chat_id_, msg.id_, "تم اعادة تشغيل بوت و تحسينه")
 end
+if text == 'تعطيل صورتي' then
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⟥┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . 
+ ⟥┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
 end
-if text == "تعطيل الصوره" or text == 'تعطيل صورتي' then
-if Constructor(msg) then  
-database:del(bot_id.."my_photo:status"..msg.chat_id_) 
-send(msg.chat_id_, msg.id_," ⟥┆تم تعطيل الصوره") 
-return false end
+return false
 end
-if text == "صورتي"  then
-local my_ph = database:get(bot_id.."my_photo:status"..msg.chat_id_)
+if not Owner(msg) then
+return send(msg.chat_id_,msg.id_,'*• اهلا عزيزي \n عذرا الامر يخص - منشئ - منشئ اساسي *')
+end
+database:set(bot_id..'my_photo:status:bot'..msg.chat_id_,'taha')
+return send(msg.chat_id_, msg.id_, '• تم تعطيل - ( امر صورتي ) ')
+end
+if text == 'تفعيل صورتي' then
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⟥┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . 
+ ⟥┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+if not Owner(msg) then
+return send(msg.chat_id_,msg.id_,'*• اهلا عزيزي \n عذرا الامر يخص - منشئ - منشئ اساسي *')
+end
+database:del(bot_id..'my_photo:status:bot'..msg.chat_id_)
+return send(msg.chat_id_, msg.id_, '• تم تفعيل - ( امر صورتي ) ')
+end
+if text == "صورتي" or text == 'افتاري' then
+local my_ph = database:get(bot_id..'my_photo:status:bot'..msg.chat_id_)
+print(my_ph)
 if not my_ph then
-send(msg.chat_id_, msg.id_," ⟥┆الصوره معطله") 
-return false  
-end
 local function getpro(extra, result, success)
 if result.photos_[0] then
-sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[0].sizes_[1].photo_.persistent_id_," ⟥┆ عدد صورك ~⪼ "..result.total_count_.." صوره‌‏", msg.id_, msg.id_, "md")
+sendPhoto(msg.chat_id_,msg.id_,result.photos_[0].sizes_[1].photo_.persistent_id_,'')
 else
-send(msg.chat_id_, msg.id_,'لا تمتلك صوره في حسابك', 1, 'md')
-  end end
+send(msg.chat_id_, msg.id_,'لا تمتلك صوره في حسابك')
+end 
+end
 tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = msg.sender_user_id_, offset_ = 0, limit_ = 1 }, getpro, nil)
 end
-if text == "صورتي" and not database:get(snab.."lock:get:photo"..msg.chat_id_)  and Owner(msg) then 
-local function getpro(extra, result, success)
-if result.photos_[0] then
-sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[0].sizes_[1].photo_.persistent_id_,"✟︙لديك "..result.total_count_.." صوره‌‏ ", msg.id_, msg.id_, "md")
-else
-send(msg.chat_id_, msg.id_, 1, "✟︙لا تمتلك صوره في حسابك  ", 1, 'md')
-end end
-tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = msg.sender_user_id_, offset_ = 0, limit_ = 1 }, getpro, nil)
 end
---     By Developer Faeder     -- 
-if text and text:match("^صورتي (%d+)$") and Owner(msg) then
-local pronumb = {string.match(text, "^(صورتي) (%d+)$")}
-local function gproen(extra, result, success)
-if not is_momod(msg.sender_user_id_, msg.chat_id_) and database:get(FAEDER.."lock:get:photo"..msg.chat_id_)  then 
-faederdx(msg.chat_id_, msg.id_, 1, '️✟︙جلب الصوره الشخصيه معطل ،', 1, 'md')
-else
-if pronumb[2] == '1' then
-if result.photos_[0] then
-sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[0].sizes_[1].photo_.persistent_id_)
-else
-send(msg.chat_id_, msg.id_, 1, "✟︙لا تمتلك صوره في حسابك  ", 1, 'md')
-end
-elseif pronumb[2] == '2' then
-if result.photos_[1] then
-sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[1].sizes_[1].photo_.persistent_id_)
-else
-send(msg.chat_id_, msg.id_, 1, '️✟︙انت لا تمتلك الصوره التي طلبت رقمها ،', 1, 'md')
-end
-elseif pronumb[2] == '3' then
-if result.photos_[2] then
-sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[2].sizes_[1].photo_.persistent_id_)
-else
-send(msg.chat_id_, msg.id_, 1, '️✟︙انت لا تمتلك الصوره التي طلبت رقمها ،', 1, 'md')
-end
-elseif pronumb[2] == '4' then
-if result.photos_[3] then
-sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[3].sizes_[1].photo_.persistent_id_)
-else
-send(msg.chat_id_, msg.id_, 1, '️✟︙انت لا تمتلك الصوره التي طلبت رقمها ،', 1, 'md')
-end
-elseif pronumb[2] == '5' then
-if result.photos_[4] then
-sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[4].sizes_[1].photo_.persistent_id_)
-else
-send(msg.chat_id_, msg.id_, 1, '️✟︙انت لا تمتلك الصوره التي طلبت رقمها ،', 1, 'md')
-end
-elseif pronumb[2] == '6' then
-if result.photos_[5] then
-sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[5].sizes_[1].photo_.persistent_id_)
-else
-send(msg.chat_id_, msg.id_, 1, '️✟︙انت لا تمتلك الصوره التي طلبت رقمها ،', 1, 'md')
-end
-elseif pronumb[2] == '7' then
-if result.photos_[6] then
-sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[6].sizes_[1].photo_.persistent_id_)
-else
-send(msg.chat_id_, msg.id_, 1, '️✟︙انت لا تمتلك الصوره التي طلبت رقمها ،', 1, 'md')
-end
-elseif pronumb[2] == '8' then
-if result.photos_[7] then
-sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[7].sizes_[1].photo_.persistent_id_)
-else
-send(msg.chat_id_, msg.id_, 1, '️✟︙انت لا تمتلك الصوره التي طلبت رقمها ،', 1, 'md')
-end
-elseif pronumb[2] == '9' then
-if result.photos_[8] then
-sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[8].sizes_[1].photo_.persistent_id_)
-else
-send(msg.chat_id_, msg.id_, 1, '️✟︙انت لا تمتلك الصوره التي طلبت رقمها ،', 1, 'md')
-end
-elseif pronumb[2] == '10' then
-if result.photos_[9] then
-sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[9].sizes_[1].photo_.persistent_id_)
-else
-send(msg.chat_id_, msg.id_, 1, '️✟︙انت لا تمتلك الصوره التي طلبت رقمها ،', 1, 'md')
-end else
-send(msg.chat_id_, msg.id_, 1, "✟︙لا يمكنني ان ارسل لك اكثر من 10 صور ", 1, 'md')
-end end end
-tdcli_function ({
-ID = "GetUserProfilePhotos",
-user_id_ = msg.sender_user_id_,
-offset_ = 0,
-limit_ = pronumb[2]
-}, gproen, nil) 
-end
+
 if text == 'المشرفين' and Devsnab(msg) then
-tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"}, offset_ = 0,limit_ = 400},function(ta,yazon1)
+tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"}, offset_ = 0,limit_ = 400},function(ta,taha1)
 t = "\n• قائمة المشرفين \n━━━━━━━━━\n"
-local list = yazon1.members_
+local list = taha1.members_
 for i=1 ,#list do
-tdcli_function ({ID = "GetUser",user_id_ = yazon1.members_[i].user_id_},function(arg,data) 
+tdcli_function ({ID = "GetUser",user_id_ = taha1.members_[i].user_id_},function(arg,data) 
 if data.username_ then
 username = '[@'..data.username_..']'
 else
-username = yazon1.members_[i].user_id_
+username = taha1.members_[i].user_id_
 end
 t = t..''..i..'- '..username..' \n '
 if #list == i then
