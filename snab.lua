@@ -8238,7 +8238,15 @@ send(msg.chat_id_, msg.id_, "⟥┆تم التحديث")
 end
 
 if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then  
-and ChCheck(msg) then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
 Text = [[
 WeLCoMe TeaM X- SnAB ∴
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ 𖤂
@@ -8250,7 +8258,7 @@ WeLCoMe TeaM X- SnAB ∴
 ]]
 send(msg.chat_id_, msg.id_,Text)
 end
-if text == 'رابط الحذف' or text == 'بوت الحذف' then  
+if text == 'رابط الحذف' or text == 'بوت الحذف' and ChCheck(msg) then  
 local url,res = https.request('https://alihaiedr.ml/UUSSUU/ashtrak.php?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.info ~= true then
