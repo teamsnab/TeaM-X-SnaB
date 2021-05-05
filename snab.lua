@@ -8235,11 +8235,14 @@ send(msg.chat_id_, msg.id_, "⟥┆تم التحديث")
 end
 
 if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then  
-local url,res = https.request('https://alihaiedr.ml/UUSSUU/ashtrak.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @TeaMXSnaB ] .')   
-return false 
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,': ℘ عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n : ℘ قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
 end
 Text = [[
 WeLCoMe TeaM X- SnAB ∴
