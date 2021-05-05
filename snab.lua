@@ -8259,12 +8259,6 @@ WeLCoMe TeaM X- SnAB ∴
 send(msg.chat_id_, msg.id_,Text)
 end
 if text == 'رابط الحذف' or text == 'بوت الحذف' and ChCheck(msg) then  
-local url,res = https.request('https://alihaiedr.ml/UUSSUU/ashtrak.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @TeaMXSnaB ] .')   
-return false 
-end
 Text = [[⟥┆@DleTBoT ]]
 send(msg.chat_id_, msg.id_,Text)
 end
