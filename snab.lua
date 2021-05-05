@@ -3236,21 +3236,24 @@ return false
 end
 
 if text == ("رفع مميز") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then  
-local url,res = https.request('https://alihaiedr.ml/UUSSUU/ashtrak.php?id='..msg.sender_user_id_)
-data = JSON.decode(url)
-if data.Ch_Member.info ~= true then
-send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @TeaMXSnaB ] .')   
-return false 
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'܁༯┆عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ܁༯┆قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
 end
-if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
-send(msg.chat_id_, msg.id_,'⟥┆لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
 return false
 end
-function Function_snab(extra, result, success)
-database:sadd(bot_id.."snab:Special:User"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","⟥┆تم ترقيته مميز للمجموعه")  
+if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
+send(msg.chat_id_, msg.id_,'܁༯┆لا تستطيع رفع احد وذالك لان تم تعطيل الرفع من قبل المنشئين')
+return false
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_snab, nil)
+function Function_korpica(extra, result, success)
+database:sadd(bot_id.."korpica:Special:User"..msg.chat_id_, result.sender_user_id_)
+Reply_Status(msg,result.sender_user_id_,"reply","܁༯┆تم ترقيته مميز للمجموعه")  
+end
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_korpica, nil)
 return false
 end
 if text and text:match("^رفع مميز @(.*)$") and Addictive(msg) then  
@@ -8235,14 +8238,11 @@ send(msg.chat_id_, msg.id_, "⟥┆تم التحديث")
 end
 
 if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,': ℘ عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n : ℘ قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
+local url,res = https.request('https://alihaiedr.ml/UUSSUU/ashtrak.php?id='..msg.sender_user_id_)
+data = JSON.decode(url)
+if data.Ch_Member.info ~= true then
+send(msg.chat_id_,msg.id_,'- شترك في قناة البوت اولآ [ @TeaMXSnaB ] .')   
+return false 
 end
 Text = [[
 WeLCoMe TeaM X- SnAB ∴
