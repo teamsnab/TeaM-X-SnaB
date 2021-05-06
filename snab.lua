@@ -427,6 +427,17 @@ chat_id_ = chat,
 user_id_ = user,
 status_ = {ID = "ChatMemberStatusKicked"},},function(arg,data) end,nil)
 end
+function AddChannel(User)
+local var = true
+if database:get(bot_id..'add:ch:id') then
+local url , res = https.request("https://api.telegram.org/bot"..token.."/getchatmember?chat_id="..database:get(bot_id..'add:ch:id').."&user_id="..User);
+data = json:decode(url)
+if res ~= 200 or data.result.status == "left" or data.result.status == "kicked" then
+var = false
+end
+end
+return var
+end
 
 function ChCheck(msg)
 local var = true 
